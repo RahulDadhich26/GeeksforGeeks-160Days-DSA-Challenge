@@ -8,20 +8,15 @@ class Solution {
   public:
     // Function to count the frequency of all elements from 1 to N in the array.
     vector<int> frequencyCount(vector<int>& arr) {
-        map<int, int>mapp;
-        int n = arr.size();
-        vector<int>ans(n,0);
+        int n=arr.size();
+        vector<int> ans(n,0);
         
         for(int i=0;i<n;i++)
         {
-            if(arr[i]>=1 && arr[i]<=n)
-            mapp[arr[i]]++;
+            if(arr[i]<=n && arr[i]>=1)
+            ans[arr[i]-1]++;
         }
-        
-        for(int i=1;i<=n;i++)
-        {
-            ans[i-1]=mapp[i];
-        }
+       
         return ans;
     }
 };
