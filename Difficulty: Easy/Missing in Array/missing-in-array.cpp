@@ -4,20 +4,21 @@ using namespace std;
 
 
 // } Driver Code Ends
-// User function template for C++
+
 class Solution {
   public:
-    long long missingNumber(vector<int>& arr) {
-       long long n = arr.size()+1;
-       long long sum = n*(n+1)/2;
-     
-       for(long long i =0 ;i<n-1;i++){
-          sum -= arr[i];      
+    int missingNum(vector<int>& arr) {
+       int ans = 0;
+       for(int x : arr){
+           ans^=x;
        }
-      
-       return sum;
+       for(int i=1;i<=arr.size()+1;++i){
+           ans^=i;
+       }
+       return ans;
     }
 };
+
 
 //{ Driver Code Starts.
 
@@ -38,7 +39,7 @@ int main() {
             a.push_back(num);
 
         Solution obj;
-        cout << obj.missingNumber(a) << endl;
+        cout << obj.missingNum(a) << endl;
         cout << "~\n";
     }
 
