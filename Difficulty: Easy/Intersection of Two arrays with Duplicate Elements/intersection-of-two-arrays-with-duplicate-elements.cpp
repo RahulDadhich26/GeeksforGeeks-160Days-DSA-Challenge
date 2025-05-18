@@ -4,25 +4,25 @@ using namespace std;
 
 
 // } Driver Code Ends
+
 class Solution {
   public:
     vector<int> intersectionWithDuplicates(vector<int>& a, vector<int>& b) {
-        set<int>s1;
-        set<int>s2;
         
-        for(int i=0;i<a.size();i++) s1.insert(a[i]);
-        for(int i=0;i<b.size();i++) s2.insert(b[i]);
-        
-        vector<int>ans ;
-        for(auto it:s1){
-            if(s2.find(it)!=s2.end()){
-                ans.push_back(it);
-            }
+       unordered_set<int> as(a.begin(), a.end());  
+       unordered_set<int> rs;                    
+       vector<int> res;                            
+    for (int i = 0; i < b.size(); i++) {
+        if (as.find(b[i]) != as.end() && 
+            rs.find(b[i]) == rs.end()) {
+            rs.insert(b[i]); 
+            res.push_back(b[i]); 
         }
-        sort(ans.begin(),ans.end());
-        return ans ;
+    }
+    return res;
     }
 };
+
 
 //{ Driver Code Starts.
 
