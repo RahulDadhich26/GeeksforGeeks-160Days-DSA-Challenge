@@ -1,9 +1,9 @@
 class Solution {
   public:
     int longestKSubstr(string &s, int k) {
-        int n=s.length();
-        
-       unordered_map<char,int>fq;
+        // code here
+        int n = s.length();
+        unordered_map<char,int>fq;
        int l=0, mx=-1;
        
        for(int r=0;r<n; r++){
