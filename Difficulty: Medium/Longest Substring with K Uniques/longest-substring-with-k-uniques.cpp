@@ -9,7 +9,7 @@ class Solution {
        for(int r=0;r<n; r++){
            fq[s[r]]++;
            
-           while(fq.size()>k){
+           if(fq.size()>k){
                fq[s[l]]--;
                if(fq[s[l]]==0) fq.erase(s[l]);
                l++;
